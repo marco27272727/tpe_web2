@@ -31,6 +31,10 @@
             $studentController = new StudentController();
             $studentController->showStudents();
             break;
+        case 'filtro' :
+            $itemController = new ItemController();
+            $itemController->filterStudent($params[1]);
+            break;
         default:
             echo('404 Page not found');
             break;

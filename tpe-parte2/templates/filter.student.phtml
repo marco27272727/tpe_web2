@@ -1,0 +1,30 @@
+
+<?php require_once 'templates/header.phtml'?>;
+<?php print_r($filterStudent)?>
+<table class="table">
+    <thead class="table-dark">
+        <?if (isset($filterStudent->nombre)) : ?>
+            <h1 class="font-monospace fw-bold display-2 text-center "><?= $filterStudent->nombre?></h1>
+        <?endif;?>
+        <tr>           
+            <th></th>
+            <th>imagen</th>
+            <th>tipo</th>
+            <th>numero</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($filterStudent as $itemStudents) : ?>
+            <tr>
+                <td>
+                    <?php if (isset($itemStudents->img)): ?>
+                        <img src="imagenes/<?= $itemStudents->img ?>" class="imgTable">
+                    <?php endif;?>        
+                </td>              
+                <td><?= $itemStudents->tipo_item?></td>
+                <td><?= $itemStudents->numero_item?></td>
+            </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

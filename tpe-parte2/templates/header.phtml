@@ -30,7 +30,9 @@
                             Alumnos
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#"></a></li>
+                            <?php foreach($students as $student) : ?>
+                                <li><a class="dropdown-item" href="filtro/<?= $student->id_alumno;?>"><?=$student->nombre?></a></li>
+                            <?php endforeach;?>
                         </ul>
                         </li>
                     </ul>

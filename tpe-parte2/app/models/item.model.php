@@ -23,4 +23,13 @@
     
             return $item;
         }
+
+        // en esta funcion se hizo un join para que de vuelva todos los items que pidio este alumno con esta id especifica.
+        function getFilterStudent($id){
+            $query = $this->db->prepare("SELECT * FROM items INNER JOIN alumno on items.id_alumno = alumno.id_alumno where items.id_alumno = ? ");
+            $query->execute([$id]);
+
+            $filterStudent = $query->fetchAll(PDO::FETCH_OBJ);
+            return $filterStudent;
+        }
     }

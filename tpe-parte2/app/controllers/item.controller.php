@@ -11,17 +11,25 @@
         public function __construct(){
             $this->model = new ItemModel();
             $this->view = new ItemView();
+            $this->modelAlumno = new StudentModel();
         }
 
         // esta funcion del controllador lo que haces es primero traer todos los items que estan en la base de datos y despues los muestra en la pagina
         public function showItems(){
             $items = $this->model->getAllItems();
-            $this->view->displayItems($items); 
+            $students = $this->modelAlumno->getAllStudents();
+            $this->view->displayItems($items,$students); 
         }
 
         // esta funcion del controllador lo que hace es primero traer los datos de la id especifica que esta en la base de datos y despues muestra lso detalles en la pagina
         public function showDetail($id){
             $detail = $this->model->getRegisterById($id);
-            $this->view->showItemDetail($detail);
+            $students = $this->modelAlumno->getAllStudents();
+            $this->view->showItemDetail($detail,$students);
+        }
+
+        public function filterStudent($id){
+            $filterStudent = $this->model->getFilterStudent($id);
+            $this->view->displayFilterStudent($filterStudent);
         }
     }
