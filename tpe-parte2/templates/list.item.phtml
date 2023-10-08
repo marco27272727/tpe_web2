@@ -1,21 +1,21 @@
 
-<?php require_once './app/views/item.view.php'; ?>
-<?php require_once './templates/header.phtml'; ?>
+
+<?php require_once 'templates/header.phtml' ?>
 
 <h1 class="title">Objetos para prestar</h1>
 
 <table class="table table-hover">
-
     <thead>
         <tr>
-        <th scope="col">imagen</th>
-        <th scope="col">id</th>
-        <th scope="col">tipo</th>
-        <th scope="col">numero</th>
-        <th scope="col">esta prestado</th>
-        <th scope="col">en que condicion que esta</th>
+            <th scope="col">imagen</th>
+            <th scope="col">id</th>
+            <th scope="col">tipo</th>
+            <th scope="col">numero</th>
+            <th scope="col">esta prestado</th>
+            <th scope="col">en que condicion que esta</th>
         </tr>
     </thead>
+
     <tbody>
         <?php foreach($items as $item) : ?>
             <tr>
@@ -38,7 +38,6 @@
             </tr>
         <?php endforeach;?>
     </tbody>
-  </table>
-
-
-<?php require_once './templates/footer.phtml'; ?>
+</table>
+  
+<?php require_once 'templates/footer.phtml' ?>

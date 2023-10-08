@@ -1,0 +1,29 @@
+
+<?php require_once 'templates/header.phtml'?>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">apellido</th>
+            <th scope="col">numero de celular</th>
+            <th scope="col">DNI</th>
+            <th scope="col">fecha de prestamo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach($students as $student) : ?>
+            <tr>
+                <td><?= $student->id_alumno?></td>                
+                <td><?= $student->nombre?></td>
+                <td><?= $student->apellido?></td>
+                <td><?= $student->numero_celular?></td>
+                <td><?= $student->dni?></td>
+                <td><?= $student->fecha_dia?></td>
+            </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
+
+<?php require_once 'templates/footer.phtml'?>

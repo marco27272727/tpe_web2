@@ -1,5 +1,6 @@
 <?php
     require_once './app/controllers/item.controller.php';
+    require_once './app/controllers/student.controller.php';
 
     // tabla de router para el acceso pulico
     //mostrarObjetos -> showItems();
@@ -9,7 +10,7 @@
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-    $action = 'mostrarObjeto';
+    $action = 'mostrarObjetos';
 
     if (!empty($_GET['action'])){
         $action = $_GET['action'];
@@ -25,6 +26,11 @@
         case 'detalle':
             $itemController = new ItemController();
             $itemController->showDetail($params[1]);
+            break;
+        case 'mostarAlumnos':
+            $studentController = new StudentController();
+            $studentController->showStudents();
+            break;
         default:
             echo('404 Page not found');
             break;
