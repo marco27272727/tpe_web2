@@ -16,4 +16,12 @@
             $items = $query->fetchAll(PDO::FETCH_OBJ);
             return $items;
         }
+
+        function getRegisterById($id){
+            $query = $this->db->prepare("SELECT * FROM items where `id_item`=?");
+            $query->execute([$id]);
+            $item = $query->fetch(PDO::FETCH_OBJ);
+    
+            return $item;
+        }
     }
