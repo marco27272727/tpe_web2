@@ -17,7 +17,7 @@
         }
 
         function getRegisterById($id){
-            $query = $this->db->prepare("SELECT * FROM items where `id_item`=?");
+            $query = $this->db->prepare("SELECT * FROM items where id_item=?");
             $query->execute([$id]);
             $item = $query->fetch(PDO::FETCH_OBJ);
     

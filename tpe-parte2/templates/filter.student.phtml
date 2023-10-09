@@ -3,9 +3,9 @@
 <?php print_r($filterStudent)?>
 <table class="table">
     <thead class="table-dark">
-        <?if (isset($filterStudent->nombre)) : ?>
+        <?foreach (isset($filterStudent->nombre)) : ?>
             <h1 class="font-monospace fw-bold display-2 text-center "><?= $filterStudent->nombre?></h1>
-        <?endif;?>
+        <?foreach;?>
         <tr>           
             <th></th>
             <th>imagen</th>

@@ -1,9 +1,9 @@
 
 <?php require_once 'templates/header.phtml'?>
 
-    <?php print_r($detail);?>
     <div class="card" style="width: 18rem;">
         <?php if (isset($detail->img)): ?>
+            <?php var_dump($detail->img);?>
             <img src="../imagenes/<?= $detail->img ?>" class="imgTable" alt="imagen de un objeto">
         <?php endif;?>
         <div class="card-body">
