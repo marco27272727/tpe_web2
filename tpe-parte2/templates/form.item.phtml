@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Agregar un item nuevo</h1>
+    <form action="agregar" method="POST">
+        <div class="mb-3">
+            <label for="type" class="form-label">Tipo:</label>
+            <select class="form-select" id="type" name="type" required>
+            <option value="">Selecciona un tipo de item</option>
+            <option value="termo">termo</option>
+            <option value="mate">mate</option>
+            <option value="calculadora">calculadora</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="number" class="form-label">numero:</label>
+            <input type="number" class="form-control" id="number" name="number" required>
+        </div>
+        <div class="mb-3">
+            <label for="state" class="form-label">En que estado esta:</label>
+            <input type="text" class="form-control" id="state" name="state" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>

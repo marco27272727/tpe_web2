@@ -32,4 +32,11 @@
             $filterStudent = $query->fetchAll(PDO::FETCH_OBJ);
             return $filterStudent;
         }
+
+        function insertItem($type,$numbre,$state){
+            $concatenar = ".jpg";
+            $imagen = $type.$concatenar;
+            $query = $this->db->prepare("INSERT INTO items (tipo_item, numero_item, en_uso, condicion, img) VALUES(?,?,?,?,?)");
+            $query->execute([$type,$numbre,0,$state,$imagen]);
+        }
     }

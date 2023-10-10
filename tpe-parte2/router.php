@@ -3,10 +3,11 @@
     require_once './app/controllers/student.controller.php';
 
     // tabla de router para el acceso pulico
-    //mostrarObjetos -> showItems();
-    // detail -> showDetail($id);
-    //mostrarAlumnos -> showStudents();
-    //alumno -> filterStudent();
+    // mostrarObjetos -> showItems();
+    // detalle/:id -> showDetail($id);
+    // mostrarAlumnos -> showStudents();
+    // flitro/:id -> filterStudent();
+    // agregar -> addItem();
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -34,6 +35,10 @@
         case 'filtro' :
             $itemController = new ItemController();
             $itemController->filterStudent($params[1]);
+            break;
+        case 'agregar' : 
+            $itemController = new ItemController();
+            $itemController->addItem();
             break;
         default:
             echo('404 Page not found');
