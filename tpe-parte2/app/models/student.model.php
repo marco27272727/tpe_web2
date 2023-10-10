@@ -13,4 +13,13 @@
             $students = $query->fetchAll(PDO::FETCH_OBJ);
             return $students;
         }
+
+        //obtengo solamente el campo nombre 
+        function getNameById($id){
+            $query = $this->db->prepare("SELECT nombre FROM alumno where id_alumno=?");
+            $query->execute([$id]);
+
+            $name = $query->fetch(PDO::FETCH_OBJ);
+            return $name;
+        }
     }

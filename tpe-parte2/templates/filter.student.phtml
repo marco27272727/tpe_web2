@@ -1,17 +1,14 @@
 
-<?php require_once 'templates/header.phtml'?>;
-<?php print_r($filterStudent)?>
+<?php require_once 'templates/header.phtml';?>
 <table class="table">
     <thead class="table-dark">
-        <?foreach (isset($filterStudent->nombre)) : ?>
-            <h1 class="font-monospace fw-bold display-2 text-center "><?= $filterStudent->nombre?></h1>
-        <?foreach;?>
-        <tr>           
-            <th></th>
-            <th>imagen</th>
-            <th>tipo</th>
-            <th>numero</th>
-            <th></th>
+        <?php if(isset($name)) : ?>
+            <h1><?=$name->nombre?></h1>
+        <?php endif;?>
+        <tr>          
+            <th scope="col">imagen</th>
+            <th scope="col">tipo</th>
+            <th scope="col">numero</th>
         </tr>
     </thead>
     <tbody>

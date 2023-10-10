@@ -28,8 +28,12 @@
             $this->view->showItemDetail($detail,$students);
         }
 
+        // esta funcion del controllador lo que hace primero es obtener el campo nombre de la id especifica
+        // despues se une con un join la tabla de tems y alumnos para obtener todos los items que ese alumno reservo
+        // y por ultimo con la dos variable obtenidas se lo muestra por la pagina.
         public function filterStudent($id){
+            $name = $this->modelAlumno->getNameById($id);
             $filterStudent = $this->model->getFilterStudent($id);
-            $this->view->displayFilterStudent($filterStudent);
+            $this->view->displayFilterStudent($filterStudent,$name);
         }
     }
