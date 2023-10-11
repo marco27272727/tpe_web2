@@ -1,5 +1,7 @@
 
 <?php require_once 'templates/header.phtml'?>
+<?php require_once 'templates/form.student.phtml'?>
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -9,6 +11,7 @@
             <th scope="col">numero de celular</th>
             <th scope="col">DNI</th>
             <th scope="col">fecha de prestamo</th>
+            <th scope="col">editar/borrar</th>
         </tr>
     </thead>
 
@@ -21,6 +24,10 @@
                 <td><?= $student->numero_celular?></td>
                 <td><?= $student->dni?></td>
                 <td><?= $student->fecha_dia?></td>
+                <td>
+                    <a href="editarEstudiante/<?= $student->id_alumno ?>" type="button" class='btn btn-success ml-auto'>Editar</a>
+                    <a href="eliminarEstudiante/<?= $student->id_alumno?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+                </td>
             </tr>
         <?php endforeach;?>
     </tbody>

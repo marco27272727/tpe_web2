@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Agregar un Alumno nuevo</h1>
+    <form action="agregarEstudiante" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="cellPhone" class="form-label">numero de celular:</label>
+            <input type="number" class="form-control" id="cellPhone" name="cellPhone" required>
+        </div>
+        <div class="mb-3">
+            <label for="dni" class="form-label">DNI:</label>
+            <input type="number" class="form-control" id="dni" name="dni" required>
+        </div>
+        <div class="mb-3">
+            <label for="dateHour">Selecciona una fecha y hora:</label>
+            <input type="datetime-local" id="dateHour" name="dateHour">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>

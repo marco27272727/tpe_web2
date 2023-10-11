@@ -43,16 +43,26 @@
             $state  = $_POST['state'];
 
             if(empty($type) || empty($number) || empty($state)){
-                $this->view->displayError("Debe de completar toso los campos");
+                $this->view->displayError("Debe de completar todo los campos");
                 return;
             }
 
             $id = $this->model->insertItem($type,$number,$state);
-            if($id){
+            if(!$id){
                 header('Location: ' . BASE_URL);
             }
             else{
                 $this->view->displayError("Error al insertar el item");
             }
+        }
+
+        public function deleteItem($id){
+            $this->model->removeItem($id);
+            header('Location: ' . BASE_URL);
+        }
+
+        public function editItem($id){
+            $this->model->updateItem($id);
+            header('Location: ' . BASE_URL);
         }
     }

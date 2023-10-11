@@ -6,8 +6,18 @@
     // mostrarObjetos -> showItems();
     // detalle/:id -> showDetail($id);
     // mostrarAlumnos -> showStudents();
-    // flitro/:id -> filterStudent();
+    // filtro/:id -> filterStudent();
+
+    // tabla de router para el acceso administrador
+    // ABM de la tabla de items
     // agregar -> addItem();
+    // eliminar/:id -> deleteItem($id);
+    // editar/:id -> editItem($id);
+    // ABM de la tabla de alumno
+    // agregarEstudiante -> addStudent();
+    // eliminarEstudiante/:id -> deleteStudent();
+    // editarEstudiante/:id -> editStudent$id();
+
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -20,6 +30,7 @@
     $params = explode('/', $action);
 
     switch($params[0]){
+        // casos para la tabla de los tiems 
         case 'mostrarObjetos':
             $itemController = new ItemController();
             $itemController->showItems();
@@ -28,10 +39,6 @@
             $itemController = new ItemController();
             $itemController->showDetail($params[1]);
             break;
-        case 'mostarAlumnos':
-            $studentController = new StudentController();
-            $studentController->showStudents();
-            break;
         case 'filtro' :
             $itemController = new ItemController();
             $itemController->filterStudent($params[1]);
@@ -39,6 +46,31 @@
         case 'agregar' : 
             $itemController = new ItemController();
             $itemController->addItem();
+            break;
+        case 'eliminar' :
+            $itemController = new ItemController();
+            $itemController->deleteItem($params[1]);
+            break;
+        case 'editar' : 
+            $itemController = new ItemController();
+            $itemController->editItem($params[1]);
+            break;
+        // casos para la tabla de estudiantes
+        case 'mostarAlumnos':
+            $studentController = new StudentController();
+            $studentController->showStudents();
+            break;
+        case 'agregarEstudiante' :
+            $studentController = new StudentController();
+            $studentController->addStudent();
+            break;
+        case 'eliminarEstudiante' :
+            $studentController = new StudentController();
+            $studentController->deleteStudent($params[1]);
+            break;
+        case 'editarEstudiante' :
+            $studentController = new StudentController();
+            $studentController->editStudent($params[1]);
             break;
         default:
             echo('404 Page not found');

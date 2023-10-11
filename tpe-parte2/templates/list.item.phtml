@@ -13,6 +13,7 @@
             <th scope="col">numero</th>
             <th scope="col">esta prestado</th>
             <th scope="col">en que condicion que esta</th>
+            <th scope="col">editar/borrar</th>
         </tr>
     </thead>
 
@@ -35,6 +36,12 @@
                     <td>No esta Prestado</td>
                 <?php endif;?>
                 <td><?= $item->condicion?></td>
+                <td>
+                    <?php if(!$item->en_uso): ?>
+                        <a href="editar/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
+                    <?php endif;?>
+                    <a href="eliminar/<?= $item->id_item ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+                </td>
             </tr>
         <?php endforeach;?>
     </tbody>

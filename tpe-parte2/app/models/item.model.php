@@ -39,4 +39,14 @@
             $query = $this->db->prepare("INSERT INTO items (tipo_item, numero_item, en_uso, condicion, img) VALUES(?,?,?,?,?)");
             $query->execute([$type,$numbre,0,$state,$imagen]);
         }
+
+        function removeItem($id){
+            $query = $this->db->prepare("DELETE FROM items where id_item = ?");
+            $query->execute([$id]);
+        }
+
+        function updateItem($id){
+            $query = $this->db->prepare("UPDATE items SET en_uso = 1 where id_item = ? ");
+            $query->execute([$id]);
+        }
     }
