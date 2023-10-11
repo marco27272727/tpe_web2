@@ -1,12 +1,15 @@
 <?php
     require_once './app/controllers/item.controller.php';
     require_once './app/controllers/student.controller.php';
+    require_once './app/controllers/auth.controller.php';
 
     // tabla de router para el acceso pulico
     // mostrarObjetos -> showItems();
     // detalle/:id -> showDetail($id);
     // mostrarAlumnos -> showStudents();
     // filtro/:id -> filterStudent();
+    // mostrarLogin -> showAuth();
+    // autenticar  -> authentic();
 
     // tabla de router para el acceso administrador
     // ABM de la tabla de items
@@ -71,6 +74,14 @@
         case 'editarEstudiante' :
             $studentController = new StudentController();
             $studentController->editStudent($params[1]);
+            break;
+        case 'mostrarLogin':
+            $authController = new AuthController();
+            $authController->showAuth();
+            break;
+        case 'authentic':
+            $authController = new AuthController();
+            $authController-> Authentic();
             break;
         default:
             echo('404 Page not found');

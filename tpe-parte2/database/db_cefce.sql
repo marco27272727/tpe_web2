@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2023 a las 01:39:17
+-- Tiempo de generación: 12-10-2023 a las 00:00:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -67,6 +67,25 @@ INSERT INTO `items` (`id_item`, `tipo_item`, `numero_item`, `en_uso`, `condicion
 (2, 'termo', 27, 1, 'en buen estado', 'termo.jpg', 1),
 (3, 'mate', 2, 0, 'en buen estado', 'mate.jpg', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id_auth` int(11) NOT NULL,
+  `e-mail` varchar(45) NOT NULL,
+  `contraseña` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id_auth`, `e-mail`, `contraseña`) VALUES
+(1, 'webadmin', '$2y$10$LsMCPd6tpTafHRmbifEFAO/gjJFqZgmujL1TnyHj5mOfVS/4x2aVK');
+
 --
 -- Índices para tablas volcadas
 --
@@ -85,6 +104,12 @@ ALTER TABLE `items`
   ADD KEY `fk_id_alumno` (`id_alumno`) USING BTREE;
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_auth`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -99,6 +124,12 @@ ALTER TABLE `alumno`
 --
 ALTER TABLE `items`
   MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_auth` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
