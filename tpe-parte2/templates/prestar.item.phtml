@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Agregar un item nuevo</h1>
+    <form action="agregar" method="POST">
+        <div class="mb-3">
+            <label for="student" class="form-label">Alumno:</label>
+            <select class="form-select" id="student" name="student" required>
+            <option value="">Selecciona a quien va a prestar el item</option>
+            <?php foreach($students as $student) : ?>
+                <option value="alumno"><?=$student->nombre?></option>
+            <?php endforeach;?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>

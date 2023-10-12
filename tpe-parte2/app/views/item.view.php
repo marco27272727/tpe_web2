@@ -19,4 +19,8 @@
         function displayError($error){
             require_once 'templates/error.phtml';
         }
+
+        function editItem($item){
+            require_once 'templates/edit.form.item.phtml';
+        }
     }

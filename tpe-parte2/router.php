@@ -19,7 +19,8 @@
     // ABM de la tabla de alumno
     // agregarEstudiante -> addStudent();
     // eliminarEstudiante/:id -> deleteStudent();
-    // editarEstudiante/:id -> editStudent$id();
+    // mostrarEdicionDeEStudiante/:id -> editStudent($id)
+    // editarEstudiante/:id -> insertStudent($id);
 
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -54,9 +55,17 @@
             $itemController = new ItemController();
             $itemController->deleteItem($params[1]);
             break;
-        case 'editar' : 
+        case 'mostrarEdicionItem':
             $itemController = new ItemController();
             $itemController->editItem($params[1]);
+            break;
+        case 'editarItem':
+            $itemController = new ItemController();
+            $itemController->insertItem($params[1]);
+            break;
+        case 'editar' : 
+            $itemController = new ItemController();
+            $itemController->lendItem($params[1]);
             break;
         // casos para la tabla de estudiantes
         case 'mostarAlumnos':

@@ -34,10 +34,10 @@
         }
 
         function insertItem($type,$numbre,$state){
-            $concatenar = ".jpg";
-            $imagen = $type.$concatenar;
+            $concatenate = ".jpg";
+            $image = $type.$concatenate;
             $query = $this->db->prepare("INSERT INTO items (tipo_item, numero_item, en_uso, condicion, img) VALUES(?,?,?,?,?)");
-            $query->execute([$type,$numbre,0,$state,$imagen]);
+            $query->execute([$type,$numbre,0,$state,$image]);
         }
 
         function removeItem($id){
@@ -48,5 +48,12 @@
         function updateItem($id){
             $query = $this->db->prepare("UPDATE items SET en_uso = 1 where id_item = ? ");
             $query->execute([$id]);
+        }
+
+        function insertEditItem($type,$number,$state,$id){
+            $concatenate = ".jpg";
+            $image = $type.$concatenate;
+            $query = $this->db->prepare("UPDATE items SET tipo_item=?, numero_item=?, condicion=?, img = ? where id_item  = ?");
+            $query->execute([$type,$number,$state,$image,$id]);
         }
     }

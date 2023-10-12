@@ -21,7 +21,7 @@
             $this->view->displayItems($items,$students); 
         }
 
-        // esta funcion del controllador lo que hace es primero traer los datos de la id especifica que esta en la base de datos y despues muestra lso detalles en la pagina
+        // esta funcion del controllador lo que hace es primero traer los datos de la id especifica que esta en la base de datos y despues muestra los detalles en la pagina
         public function showDetail($id){
             $detail = $this->model->getRegisterById($id);
             $students = $this->modelAlumno->getAllStudents();
@@ -62,6 +62,23 @@
         }
 
         public function editItem($id){
+            $item = $this->model->getRegisterById($id);
+            $this->view->editItem($item);
+        }
+
+        public function insertItem($id){
+            if(isset($_POST['type']) || isset($_POST['number']) || isset($_POST['state'])){
+                $type = $_POST['type'];
+                $number = $_POST['number'];
+                $state  = $_POST['state'];
+                $this->model->insertEditItem($type,$number,$state,$id);
+
+                header("Location: " . BASE_URL);
+            }
+        }
+
+        public function lendItem($id){
+            
             $this->model->updateItem($id);
             header('Location: ' . BASE_URL);
         }

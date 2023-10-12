@@ -36,8 +36,11 @@
                 <td><?= $item->condicion?></td>
                 <td>
                     <?php if(!$item->en_uso): ?>
-                        <a href="editar/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
+                        <a href="prestarEstudiante/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
+                    <?php else : ?>
+                        <a href="#" type="button" class='btn btn-success ml-auto'>Devolver</a>
                     <?php endif;?>
+                    <a href="mostrarEdicionItem/<?=$item->id_item?>" type="button" class='btn btn-success ml-auto'>Editar</a>
                     <a href="eliminar/<?= $item->id_item ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
                 </td>
             </tr>
