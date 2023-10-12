@@ -21,7 +21,7 @@
             $users = $this->model->getUsers();
             $email = $_POST['email'];
             $password = $_POST['password'];
-            if(password_verify($password, $users->contraseña)){
+            if(($email == $users->e_mail) && (password_verify($password, $users->contraseña))){
                 echo 'sos un capo';
             }
             else{

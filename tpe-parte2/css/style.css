@@ -7,3 +7,24 @@ header img {
 .imgTable{
     width:3rem;
 }
+.nav-item:hover {
+    background-color: #FFDD00;
+  }
+.dropdown-item:hover{
+    background-color: #FFDD0080;
+}
+.nav-link:hover{
+    color: black;
+}
+.dropdown-item:hover{
+    color: black;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+}
+footer{
+    margin-top: auto;
+}
