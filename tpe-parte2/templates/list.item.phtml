@@ -11,6 +11,7 @@
             <th scope="col">numero</th>
             <th scope="col">esta prestado</th>
             <th scope="col">en que condicion que esta</th>
+            <th scope="col">estado</th>
             <th scope="col">editar/borrar</th>
         </tr>
     </thead>
@@ -35,11 +36,13 @@
                 <?php endif;?>
                 <td><?= $item->condicion?></td>
                 <td>
-                    <?php if(!$item->en_uso): ?>
+                <?php if(!$item->en_uso): ?>
                         <a href="prestarEstudiante/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
                     <?php else : ?>
                         <a href="#" type="button" class='btn btn-success ml-auto'>Devolver</a>
                     <?php endif;?>
+                </td>
+                <td>
                     <a href="mostrarEdicionItem/<?=$item->id_item?>" type="button" class='btn btn-success ml-auto'>Editar</a>
                     <a href="eliminar/<?= $item->id_item ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
                 </td>

@@ -63,9 +63,13 @@
             $itemController = new ItemController();
             $itemController->insertItem($params[1]);
             break;
-        case 'editar' : 
+        case 'prestarEstudiante':
             $itemController = new ItemController();
-            $itemController->lendItem($params[1]);
+            $itemController-> getStudent($params[1]); 
+            break;
+        case 'editarBoton' : 
+            $itemController = new ItemController();
+            $itemController->lendItem($params[1],$params[2]);
             break;
         // casos para la tabla de estudiantes
         case 'mostarAlumnos':

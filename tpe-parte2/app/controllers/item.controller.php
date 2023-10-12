@@ -77,9 +77,15 @@
             }
         }
 
-        public function lendItem($id){
+        public function lendItem($idItem,$idStudent){
             
-            $this->model->updateItem($id);
+            $this->model->updateItem($idItem,$idStudent);
             header('Location: ' . BASE_URL);
+        }
+
+        public function getStudent($id){
+            $item = $this->model->getRegisterById($id);
+            $students = $this->modelAlumno->getAllStudents();
+            $this->view->chooseStudent($item,$students);
         }
     }

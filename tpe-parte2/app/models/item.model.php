@@ -45,9 +45,9 @@
             $query->execute([$id]);
         }
 
-        function updateItem($id){
-            $query = $this->db->prepare("UPDATE items SET en_uso = 1 where id_item = ? ");
-            $query->execute([$id]);
+        function updateItem($idItem,$idStudent){
+            $query = $this->db->prepare("UPDATE items SET en_uso = 1, id_alumno = ? where id_item = ? ");
+            $query->execute([$idStudent,$idItem]);
         }
 
         function insertEditItem($type,$number,$state,$id){

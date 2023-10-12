@@ -23,4 +23,8 @@
         function editItem($item){
             require_once 'templates/edit.form.item.phtml';
         }
+
+        function chooseStudent($item,$students){
+            require_once 'templates/lend.form.to.student.phtml';
+        }
     }

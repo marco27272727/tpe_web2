@@ -1,0 +1,32 @@
+<?php require_once 'templates/header.phtml';?>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">imagen</th>
+            <th scope="col">tipo</th>
+            <th scope="col">numero</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <?php if (isset($item->img)): ?>
+                    <img src="imagenes/<?= $item->img ?>" class="imgTable">
+                <?php endif;?>        
+            </td>              
+            <td><?= $item->tipo_item?></td>
+            <td><?= $item->numero_item?></td>
+        </tr>
+    </tbody>
+</tabla>
+
+
+<h1>Selecciona un alumno</h1>
+<ul>
+    <?php foreach($students as $student) : ?>
+        <li><a href="editarBoton/<?=$item->id_item?>/<?=$student->id_alumno?>"><?=$student->nombre?></a></li>
+    <?php endforeach;?>
+</ul>
+
+<?php require_once 'templates/footer.phtml' ?>

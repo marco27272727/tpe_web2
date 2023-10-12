@@ -33,7 +33,7 @@
 
             $id = $this->model->insertStudent($name,$lastName,$cellPhone,$dni,$dateHour);
             if(!$id){
-                header('Location: ' . BASE_URL);
+                header("Location: " . BASE_URL. 'mostarAlumnos');
             }
             else{
                 $this->view->displayError("Error al insertar el item");
