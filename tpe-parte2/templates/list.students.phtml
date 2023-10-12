@@ -1,6 +1,5 @@
 
 <?php require_once 'templates/header.phtml'?>
-<?php require_once 'templates/form.student.phtml'?>
 
 <table class="table table-hover">
     <thead>
@@ -25,7 +24,7 @@
                 <td><?= $student->dni?></td>
                 <td><?= $student->fecha_dia?></td>
                 <td>
-                    <a href="editarEstudiante/<?= $student->id_alumno ?>" type="button" class='btn btn-success ml-auto'>Editar</a>
+                    <a href="mostrarEdicionDeEStudiante/<?= $student->id_alumno ?>" type="button" class='btn btn-success ml-auto'>Editar</a>
                     <a href="eliminarEstudiante/<?= $student->id_alumno?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
                 </td>
             </tr>
@@ -33,4 +32,5 @@
     </tbody>
 </table>
 
+<?php require_once 'templates/form.student.phtml'?>
 <?php require_once 'templates/footer.phtml'?>

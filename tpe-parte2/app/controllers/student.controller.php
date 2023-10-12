@@ -42,28 +42,25 @@
 
         public function deleteStudent($id){
             $this->model->removeStudent($id);
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL . 'mostarAlumnos');
         }
 
         public function editStudent($id){
-            $name = $_POST['name'];
-            $lastName = $_POST['lastName'];
-            $cellPhone  = $_POST['cellPhone'];
-            $dni  = $_POST['dni'];
-            $dateHour  = $_POST['dateHour'];
+            $student = $this->model->getRegisterById($id);
+            $this->view->editStudent($student);
+        }
 
-            if(empty($name) || empty($lastName) || empty($cellPhone) || empty($dni) || empty($dateHour)){
-                $this->view->displayError("Debe de completar todo los campos");
-                return;
-            }
+        public function insertEditStudent($id){
+            if(isset($_POST['name']) || isset($_POST['lastName']) || isset($_POST['cellPhone']) || isset($_POST['dni']) || isset($_POST['dateHour'])){
+                $name = $_POST['name'];
+                $lastName = $_POST['lastName'];
+                $cellPhone  = $_POST['cellPhone'];
+                $dni  = $_POST['dni'];
+                $dateHour  = $_POST['dateHour'];
+                $this->model->insertEditStudent($name,$lastName,$cellPhone,$dni,$dateHour,$id);
 
-            $id = $this->model->insertStudent($name,$lastName,$cellPhone,$dni,$dateHour);
-            if(!$id){
-                header('Location: ' . BASE_URL);
-            }
-            else{
-                $this->view->displayError("Error al insertar el item");
-            }
+                header("Location: " . BASE_URL. 'mostarAlumnos');
+            }       
         }
         
     }

@@ -12,4 +12,7 @@
             require_once 'templates/error.phtml';
         }
         
+        function editStudent($student){
+            require_once 'templates/edit.form.student.phtml';
+        }
     }

@@ -71,9 +71,13 @@
             $studentController = new StudentController();
             $studentController->deleteStudent($params[1]);
             break;
-        case 'editarEstudiante' :
+        case 'mostrarEdicionDeEStudiante':
             $studentController = new StudentController();
             $studentController->editStudent($params[1]);
+            break;
+        case 'editarEstudiante' :
+            $studentController = new StudentController();
+            $studentController->insertEditStudent($params[1]);
             break;
         case 'mostrarLogin':
             $authController = new AuthController();

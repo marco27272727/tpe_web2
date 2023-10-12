@@ -1,0 +1,30 @@
+<?php require_once 'templates/header.phtml'?>
+
+<div class="container">
+    <h1>Editar Alumno</h1>
+    <form action="editarEstudiante/<?= $student->id_alumno?>" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?= $student->nombre?>"  required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" value="<?= $student->apellido?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="cellPhone" class="form-label">numero de celular:</label>
+            <input type="number" class="form-control" id="cellPhone" name="cellPhone" value="<?= $student->numero_celular?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="dni" class="form-label">DNI:</label>
+            <input type="number" class="form-control" id="dni" name="dni" value="<?= $student->dni?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="dateHour">Selecciona una fecha y hora:</label>
+            <input type="datetime-local" id="dateHour" name="dateHour"value="<?= $student->fecha_dia?>" require>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+<?php require_once 'templates/footer.phtml'?>

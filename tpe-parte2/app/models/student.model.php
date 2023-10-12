@@ -32,4 +32,17 @@
             $query = $this->db->prepare("DELETE FROM alumno where id_alumno = ?");
             $query->execute([$id]);
         }
+
+        function getRegisterById($id){
+            $query = $this->db->prepare("SELECT * FROM alumno where id_alumno = ?");
+            $query->execute([$id]);
+
+            $student = $query->fetch(PDO::FETCH_OBJ);
+            return $student;
+        }
+
+        function insertEditStudent($name,$lastName,$cellPhone,$dni,$dateHour,$id){
+            $query = $this->db->prepare("UPDATE alumno SET nombre=?, apellido=?, numero_celular=?, dni=?, fecha_dia=? where id_alumno = ?");
+            $query->execute([$name,$lastName,$cellPhone,$dni,$dateHour,$id]);
+        }
     }
