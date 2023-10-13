@@ -56,4 +56,9 @@
             $query = $this->db->prepare("UPDATE items SET tipo_item=?, numero_item=?, condicion=?, img = ? where id_item  = ?");
             $query->execute([$type,$number,$state,$image,$id]);
         }
+
+        function updateReturnItem($id){
+            $query = $this->db->prepare("UPDATE items SET en_uso = 0, id_alumno = NULL where id_item = ?");
+            $query->execute([$id]);
+        }
     }

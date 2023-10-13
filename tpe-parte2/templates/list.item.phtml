@@ -39,7 +39,7 @@
                 <?php if(!$item->en_uso): ?>
                         <a href="prestarEstudiante/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
                     <?php else : ?>
-                        <a href="#" type="button" class='btn btn-success ml-auto'>Devolver</a>
+                        <a href="devolverItem/<?= $item->id_item?>" type="button" class='btn btn-success ml-auto'>Devolver</a>
                     <?php endif;?>
                 </td>
                 <td>

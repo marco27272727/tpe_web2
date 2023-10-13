@@ -10,6 +10,9 @@
     // filtro/:id -> filterStudent();
     // mostrarLogin -> showAuth();
     // autenticar  -> authentic();
+    // prestarEstudiante/:id -> getStudent($id) 
+    // editarBoton/:idItem,idEstudiante -> lendItem($idItem,$idEstudiante)
+    // devolverItem/:id -> returnItem($id)
 
     // tabla de router para el acceso administrador
     // ABM de la tabla de items
@@ -70,6 +73,10 @@
         case 'editarBoton' : 
             $itemController = new ItemController();
             $itemController->lendItem($params[1],$params[2]);
+            break;
+        case 'devolverItem':
+            $itemController = new ItemController();
+            $itemController-> returnItem($params[1]);
             break;
         // casos para la tabla de estudiantes
         case 'mostarAlumnos':

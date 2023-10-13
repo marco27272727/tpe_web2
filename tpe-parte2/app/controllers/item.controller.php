@@ -88,4 +88,9 @@
             $students = $this->modelAlumno->getAllStudents();
             $this->view->chooseStudent($item,$students);
         }
+
+        public function returnItem($id){
+            $this->model->updateReturnItem($id);
+            header('Location: ' . BASE_URL);
+        }
     }

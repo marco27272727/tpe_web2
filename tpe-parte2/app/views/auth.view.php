@@ -2,7 +2,7 @@
 
     class AuthView{
         //muestra la pagina de autenticación
-        function displayAuth(){
+        function displayAuth($students){
             require_once 'templates/auth.phtml';
         }
 

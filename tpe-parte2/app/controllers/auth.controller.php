@@ -6,15 +6,17 @@
     class AuthController{
         private $model;
         private $view;
+        private $modelAlumno;
 
         public function __construct(){
             $this->model = new AuthModel();
             $this->view = new AuthView();
-
+            $this->modelAlumno = new StudentModel();
         }
         
         public function showAuth(){
-            $this->view->displayAuth();
+            $students = $this->modelAlumno->getAllStudents();
+            $this->view->displayAuth($students);
         }
 
         public function Authentic(){
