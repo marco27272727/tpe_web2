@@ -1,6 +1,7 @@
 <?php
     require_once './app/models/item.model.php';
     require_once './app/views/item.view.php';
+    require_once './helpers/auth.helper.php';
 
     // se crea el objeto controllador de los items que se van a prestar en el cefce
     class ItemController {
@@ -12,7 +13,21 @@
             $this->model = new ItemModel();
             $this->view = new ItemView();
             $this->modelAlumno = new StudentModel();
+            $this->checkLoggedIn();
+            $authHelper = new AuthHelper();
+            $authHelper->checkLoggedIn();
+
         }
+
+        private function checkLoggedIn() {
+            session_start();
+            if (!isset($_SESSION['ID_USER'])) {
+                header('Location:  . mostrarLogin');
+                die();
+            }
+                
+        }
+    
 
         // esta funcion del controllador lo que haces es primero traer todos los items que estan en la base de datos y despues los muestra en la pagina
         public function showItems(){
@@ -38,6 +53,7 @@
         }
 
         public function addItem(){
+            $this->checkLoggedIn();
             $type = $_POST['type'];
             $number = $_POST['number'];
             $state  = $_POST['state'];

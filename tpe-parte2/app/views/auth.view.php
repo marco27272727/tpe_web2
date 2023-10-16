@@ -8,6 +8,6 @@
 
         //muestra error de autenticacion
         function displayLoginError(){
-            echo 'le erraste mi loco';
+            require_once 'templates/auth.error.phtml';
         }
     }

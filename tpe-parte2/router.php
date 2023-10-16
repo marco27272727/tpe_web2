@@ -2,6 +2,7 @@
     require_once './app/controllers/item.controller.php';
     require_once './app/controllers/student.controller.php';
     require_once './app/controllers/auth.controller.php';
+    
 
     // tabla de router para el acceso pulico
     // mostrarObjetos -> showItems();

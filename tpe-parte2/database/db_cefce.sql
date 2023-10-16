@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2023 a las 00:00:26
+-- Tiempo de generación: 16-10-2023 a las 04:21:20
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,7 +41,9 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `numero_celular`, `dni`, `fecha_dia`) VALUES
-(1, 'marcos', 'cordoba', '2494522237', 37935541, '2023-10-08 15:00:16');
+(1, 'marcos', 'cordoba', '2494522237', 37935541, '2023-10-08 15:00:16'),
+(2, 'maximo', 'bayones', '2284552410', 42773117, '2023-10-15 21:55:08'),
+(3, 'camila', 'colombani', ' 2147483647', 42773118, '2023-10-15 21:55:31');
 
 -- --------------------------------------------------------
 
@@ -64,8 +66,10 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id_item`, `tipo_item`, `numero_item`, `en_uso`, `condicion`, `img`, `id_alumno`) VALUES
-(2, 'termo', 27, 1, 'en buen estado', 'termo.jpg', 1),
-(3, 'mate', 2, 0, 'en buen estado', 'mate.jpg', 1);
+(2, 'termo', 27, 1, 'en buen estado', 'termo.jpg', 2),
+(3, 'mate', 2, 1, 'en buen estado', 'mate.jpg', 1),
+(4, 'calculadora', 20, 1, 'No resuelve integrales', 'calculadora.jpg', 3),
+(5, 'termo', 8, 1, 'buen estado', 'termo.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,7 @@ INSERT INTO `items` (`id_item`, `tipo_item`, `numero_item`, `en_uso`, `condicion
 
 CREATE TABLE `users` (
   `id_auth` int(11) NOT NULL,
-  `e-mail` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
   `contraseña` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -83,7 +87,7 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id_auth`, `e-mail`, `contraseña`) VALUES
+INSERT INTO `users` (`id_auth`, `username`, `contraseña`) VALUES
 (1, 'webadmin', '$2y$10$LsMCPd6tpTafHRmbifEFAO/gjJFqZgmujL1TnyHj5mOfVS/4x2aVK');
 
 --
@@ -117,13 +121,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

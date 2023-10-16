@@ -3,7 +3,7 @@
 <form action="authentic" method="POST">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input name= "username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input name= "email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">nunca compartiremos tu información con nadie</div>
   </div>
   <div class="mb-3">
@@ -12,5 +12,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<div class="login-error-box">
+  <p class="login-error">Contraseña incorrecta, vuelva a intentar</p>
+</div>
 
 <?php require_once 'templates/footer.phtml'?>

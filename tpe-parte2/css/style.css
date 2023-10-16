@@ -1,30 +1,40 @@
 header img {
-    width: 100%; 
-    height:18rem;
-    object-fit: cover;    
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
 }
 
-.imgTable{
-    width:3rem;
+.imgTable {
+  width: 3rem;
 }
 .nav-item:hover {
-    background-color: #FFDD00;
-  }
-.dropdown-item:hover{
-    background-color: #FFDD0080;
+  background-color: #ffdd00;
 }
-.nav-link:hover{
-    color: black;
+.dropdown-item:hover {
+  background-color: #ffdd0080;
 }
-.dropdown-item:hover{
-    color: black;
+.nav-link:hover {
+  color: black;
 }
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: gray;
+.dropdown-item:hover {
+  color: black;
 }
-footer{
-    margin-top: auto;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+}
+footer {
+  margin-top: auto;
+}
+.login-error-box {
+  border: 1px solid #f00;
+  padding: 10px;
+}
+
+.login-error {
+  color: #f00;
+  font-weight: bold;
+  margin: 0;
 }
