@@ -8,25 +8,16 @@
         private $model;
         private $view;
         private $modelAlumno;
+        private $authHelper;
 
         public function __construct(){
             $this->model = new ItemModel();
             $this->view = new ItemView();
             $this->modelAlumno = new StudentModel();
-            $this->checkLoggedIn();
-            $authHelper = new AuthHelper();
-            $authHelper->checkLoggedIn();
+            $this->authHelper = new AuthHelper();
 
         }
 
-        private function checkLoggedIn() {
-            session_start();
-            if (!isset($_SESSION['ID_USER'])) {
-                header('Location:  . mostrarLogin');
-                die();
-            }
-                
-        }
     
 
         // esta funcion del controllador lo que haces es primero traer todos los items que estan en la base de datos y despues los muestra en la pagina
@@ -53,7 +44,7 @@
         }
 
         public function addItem(){
-            $this->checkLoggedIn();
+            $this->authHelper->checkLoggedIn();
             $type = $_POST['type'];
             $number = $_POST['number'];
             $state  = $_POST['state'];
@@ -73,16 +64,19 @@
         }
 
         public function deleteItem($id){
+            $this->authHelper->checkLoggedIn();
             $this->model->removeItem($id);
             header('Location: ' . BASE_URL);
         }
 
         public function editItem($id){
+            $this->authHelper->checkLoggedIn();
             $item = $this->model->getRegisterById($id);
             $this->view->editItem($item);
         }
 
         public function insertItem($id){
+            $this->authHelper->checkLoggedIn();
             if(isset($_POST['type']) || isset($_POST['number']) || isset($_POST['state'])){
                 $type = $_POST['type'];
                 $number = $_POST['number'];

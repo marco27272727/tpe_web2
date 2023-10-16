@@ -27,13 +27,8 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
             if( (!empty($users->username) && password_verify($password, $users->contraseña))){
-                //inicio sesión
-                session_start();
-                $_SESSION['ID_USER'] = $users->id_auth;
-                $_SESSION['USERNAME'] = $users->username;
-                $this->authHelper->login($users);
-                header('location: mostrarObjetos');
-                die();
+                $this->authHelper->login($users->username);
+                header('Location: ' . BASE_URL . 'mostrarObjetos');
             }
             else{
                 $this->view->displayLoginError();
@@ -42,7 +37,7 @@
         public function logout() {
             session_start();
             session_destroy();
-            $this->authHelper->logout();
+            //$this->authHelper->logout();
             header('location. mostrarLogin');
 
         }
