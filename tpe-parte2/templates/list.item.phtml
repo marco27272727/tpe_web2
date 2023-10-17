@@ -12,7 +12,9 @@
             <th scope="col">esta prestado</th>
             <th scope="col">en que condicion que esta</th>
             <th scope="col">estado</th>
-            <th scope="col">editar/borrar</th>
+            <?php if (isset($_SESSION['ID_USER'])) : ?>
+                <th scope="col">editar/borrar</th>
+            <?php endif ?>
         </tr>
     </thead>
 
@@ -42,14 +44,19 @@
                         <a href="devolverItem/<?= $item->id_item?>" type="button" class='btn btn-success ml-auto'>Devolver</a>
                     <?php endif;?>
                 </td>
-                <td>
-                    <a href="mostrarEdicionItem/<?=$item->id_item?>" type="button" class='btn btn-success ml-auto'>Editar</a>
-                    <a href="eliminar/<?= $item->id_item ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
-                </td>
+                <?php if (isset($_SESSION['ID_USER'])) : ?>
+                    <td>
+                        <a href="mostrarEdicionItem/<?=$item->id_item?>" type="button" class='btn btn-success ml-auto'>Editar</a>
+                        <a href="eliminar/<?= $item->id_item ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+                    </td>
+                <?php endif ?>
             </tr>
         <?php endforeach;?>
     </tbody>
 </table>
-  
-<?php require_once 'templates/form.item.phtml';?>
+
+<?php if (isset($_SESSION['ID_USER'])) : ?>
+    <?php require_once 'templates/form.item.phtml';?>
+<?php endif ?>
+
 <?php require_once 'templates/footer.phtml' ?>

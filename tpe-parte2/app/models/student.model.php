@@ -1,9 +1,12 @@
 <?php 
+
+    require_once 'config.php';
+
     class StudentModel{
         private $db;
-
+        
         public function __construct(){
-            $this->db = new PDO('mysql:host=localhost;dbname=db_cefce;charset=utf8','root','');
+            $this->db = new PDO('mysql:host='.db_host.';dbname='.db_name.';charset='.db_charset, db_user, db_pass);           
         }
 
         function getAllStudents(){

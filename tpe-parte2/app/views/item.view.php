@@ -12,7 +12,7 @@
             require_once 'templates/detail.item.phtml';
         }
 
-        function displayFilterStudent($filterStudent,$name){
+        function displayFilterStudent($filterStudent,$name,$students){
             require_once 'templates/filter.student.phtml';
         }
 

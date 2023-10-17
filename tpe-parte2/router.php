@@ -29,7 +29,7 @@
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-    $action = 'mostrarObjetos';
+    $action = 'mostrarLogin';
 
     if (!empty($_GET['action'])){
         $action = $_GET['action'];
@@ -106,7 +106,11 @@
             break;
         case 'authentic':
             $authController = new AuthController();
-            $authController-> Authentic();
+            $authController-> authentic();
+            break;
+        case 'logout':
+            $controller = new AuthController();
+            $controller->logout();
             break;
         default:
             echo('404 Page not found');

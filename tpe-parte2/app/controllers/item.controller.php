@@ -1,7 +1,7 @@
 <?php
     require_once './app/models/item.model.php';
     require_once './app/views/item.view.php';
-    require_once './helpers/auth.helper.php';
+    require_once './app/helpers/auth.helper.php';
 
     // se crea el objeto controllador de los items que se van a prestar en el cefce
     class ItemController {
@@ -15,6 +15,7 @@
             $this->view = new ItemView();
             $this->modelAlumno = new StudentModel();
             $this->authHelper = new AuthHelper();
+            $this->authHelper->init();
 
         }
 
@@ -40,7 +41,8 @@
         public function filterStudent($id){
             $name = $this->modelAlumno->getNameById($id);
             $filterStudent = $this->model->getFilterStudent($id);
-            $this->view->displayFilterStudent($filterStudent,$name);
+            $students = $this->modelAlumno->getAllStudents();
+            $this->view->displayFilterStudent($filterStudent,$name,$students);
         }
 
         public function addItem(){
@@ -56,7 +58,7 @@
 
             $id = $this->model->insertItem($type,$number,$state);
             if(!$id){
-                header('Location: ' . BASE_URL);
+                header('Location: ' . BASE_URL . 'mostrarObjetos');
             }
             else{
                 $this->view->displayError("Error al insertar el item");
@@ -66,7 +68,7 @@
         public function deleteItem($id){
             $this->authHelper->checkLoggedIn();
             $this->model->removeItem($id);
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL . 'mostrarObjetos');
         }
 
         public function editItem($id){
@@ -83,14 +85,14 @@
                 $state  = $_POST['state'];
                 $this->model->insertEditItem($type,$number,$state,$id);
 
-                header("Location: " . BASE_URL);
+                header('Location: ' . BASE_URL . 'mostrarObjetos');
             }
         }
 
         public function lendItem($idItem,$idStudent){
             
             $this->model->updateItem($idItem,$idStudent);
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL . 'mostrarObjetos');
         }
 
         public function getStudent($id){
@@ -101,6 +103,6 @@
 
         public function returnItem($id){
             $this->model->updateReturnItem($id);
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL . 'mostrarObjetos');
         }
     }
