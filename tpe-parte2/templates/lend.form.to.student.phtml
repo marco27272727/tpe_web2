@@ -22,10 +22,10 @@
 </tabla>
 
 
-<h1>Selecciona un alumno</h1>
+<h1 class="new-item-alumn-hour">Selecciona un alumno</h1>
 <ul>
     <?php foreach($students as $student) : ?>
-        <li><a href="editarBoton/<?=$item->id_item?>/<?=$student->id_alumno?>"><?=$student->nombre?></a></li>
+        <li><a class="alumno-seleccion" href="editarBoton/<?=$item->id_item?>/<?=$student->id_alumno?>"><?=$student->nombre?></a></li>
     <?php endforeach;?>
 </ul>
 

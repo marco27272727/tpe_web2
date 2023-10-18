@@ -3,10 +3,25 @@ header img {
   height: 18rem;
   object-fit: cover;
 }
-
 .imgTable {
   width: 3rem;
 }
+/* ESTUDIANTES QUE PIDIERON */
+.student-box {
+  width: 200px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 0px;
+  margin-top: 25px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.445);
+}
+.student-name {
+  padding: 10px;
+  margin-bottom: 0px;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+/* NAVBAR */
 .nav-item:hover {
   background-color: #ffdd00;
 }
@@ -19,22 +34,94 @@ header img {
 .dropdown-item:hover {
   color: black;
 }
+/* GENERAL */
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: gray;
+  background-color: rgb(54, 53, 53);
+}
+
+/* FOOTER */
+
+.footer-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  background-color: black;
+}
+.footer-text {
+  padding-top: 10px;
+  color: gray;
+}
+.amu-logo {
+  text-align: center;
+  width: 100px;
+  height: 50px;
+}
+.amu-link {
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: gray;
 }
 footer {
   margin-top: auto;
+  border-color: black;
+}
+
+/* LOGIN */
+.form-box {
+  width: 500px;
+}
+.form-label {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+.form-text {
+  color: black;
 }
 .login-error-box {
   border: 1px solid #f00;
+  border-radius: 5px;
   padding: 10px;
+  background-color: #f1b8b8;
 }
 
 .login-error {
   color: #f00;
   font-weight: bold;
   margin: 0;
+}
+
+/* LISTA OBJETOS */
+.title-box {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.61);
+}
+.title {
+  padding: 10px;
+  margin-bottom: 0px;
+  color: #ffdd00;
+  font-family: "Montserrat", sans-serif;
+}
+.btn.btn-exa {
+  background-color: rgba(0, 0, 0, 0.856);
+  color: #ffdd00;
+}
+
+/* AGREGAR OBJETOS-ALUMNOS */
+.new-item-alumn-hour {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+.alumno-seleccion {
+  text-decoration: none;
+  color: black;
+  font-family: "Montserrat", sans-serif;
 }

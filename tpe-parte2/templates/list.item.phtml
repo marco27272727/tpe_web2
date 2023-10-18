@@ -1,12 +1,14 @@
 <?php require_once 'templates/header.phtml';?>
 
-<h1 class="title">Objetos para prestar</h1>
+<div class="title-box">
+    <h1 class="title">Objetos para prestar</h1>
+</div>
+
 
 <table class="table table-hover">
     <thead>
-        <tr>
+        <tr >
             <th scope="col">imagen</th>
-            <th scope="col">id</th>
             <th scope="col">tipo</th>
             <th scope="col">numero</th>
             <th scope="col">esta prestado</th>
@@ -27,8 +29,7 @@
                             <img src="imagenes/<?= $item->img ?>" class="imgTable">
                         <?php endif;?>
                     </a>        
-                </td>
-                <td><?= $item->id_item?></td>                
+                </td>               
                 <td><?= $item->tipo_item?></td>
                 <td><?= $item->numero_item?></td>
                 <?php if($item->en_uso): ?>
@@ -39,9 +40,9 @@
                 <td><?= $item->condicion?></td>
                 <td>
                 <?php if(!$item->en_uso): ?>
-                        <a href="prestarEstudiante/<?= $item->id_item ?>" type="button" class='btn btn-success ml-auto'>Prestar</a>
+                        <a href="prestarEstudiante/<?= $item->id_item ?>" type="button" class='btn btn-exa'>Prestar</a>
                     <?php else : ?>
-                        <a href="devolverItem/<?= $item->id_item?>" type="button" class='btn btn-success ml-auto'>Devolver</a>
+                        <a href="devolverItem/<?= $item->id_item?>" type="button" class='btn btn-exa'>Devolver</a>
                     <?php endif;?>
                 </td>
                 <?php if (isset($_SESSION['ID_USER'])) : ?>

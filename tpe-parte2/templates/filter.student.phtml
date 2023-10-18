@@ -3,8 +3,10 @@
 <table class="table">
     <thead class="table-dark">
         <?php if(isset($name)) : ?>
-            <h1><?=$name->nombre?></h1>
-        <?php endif;?>
+            <div class="student-box">
+                <h1 class="student-name"><?=$name->nombre?></h1>
+            </div>
+            <?php endif;?>
         <tr>          
             <th scope="col">imagen</th>
             <th scope="col">tipo</th>
