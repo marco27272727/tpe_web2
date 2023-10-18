@@ -23,6 +23,7 @@
             $this->view->displayStudents($students);
         }
 
+        // funcion que agregar un nuevo estudiante
         public function addStudent(){
             $this->authHelper->checkLoggedIn();
             $name = $_POST['name'];
@@ -45,18 +46,21 @@
             }
         }
 
+        //funcion que elimina un estudiante con una id especifica
         public function deleteStudent($id){
             $this->authHelper->checkLoggedIn();
             $this->model->removeStudent($id);
             header('Location: ' . BASE_URL . 'mostarAlumnos');
         }
 
+        //funcion que va a modificar el estudiante con la id modificada
         public function editStudent($id){
             $this->authHelper->checkLoggedIn();
             $student = $this->model->getRegisterById($id);
             $this->view->editStudent($student);
         }
 
+        // funcion que va a actualizar los datos en la base de datos del estudiante con esa id especifica
         public function insertEditStudent($id){
             $this->authHelper->checkLoggedIn();
             if(isset($_POST['name']) || isset($_POST['lastName']) || isset($_POST['cellPhone']) || isset($_POST['dni']) || isset($_POST['dateHour'])){

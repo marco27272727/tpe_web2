@@ -5,7 +5,14 @@ header img {
 }
 .imgTable {
   width: 3rem;
+  height: auto;
 }
+
+.imgDetail{
+  width: 25%;
+  height: auto;
+}
+
 /* ESTUDIANTES QUE PIDIERON */
 .student-box {
   width: 200px;
