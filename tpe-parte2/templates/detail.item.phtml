@@ -1,14 +1,15 @@
 
 <?php require_once 'templates/header.phtml'?>
 
-    <div class="card" style="width: 18rem;">
+    <div class="card card mx-auto py-auto" style="width: 18rem;">
         <?php if (isset($detail->img)): ?>
-            <img src="imagenes/<?= $detail->img ?>" class="imgTable" alt="imagen de un objeto">
+            <img src="imagenes/<?= $detail->img ?>" class="imgDetail mx-auto" alt="imagen de un objeto">
         <?php endif;?>
         <div class="card-body">
             <?php if(isset($detail->tipo_item) && isset($detail->condicion)) : ?>
-                <h5 class="card-title"><?= $detail->tipo_item?></h5>
-                <p class="card-text"><?= $detail->condicion?></p>
+                <p class="card-title">Tipo: <?= $detail->tipo_item?></p>
+                <p class="card-text">Numero: <?= $detail->numero_item?></p>
+                <p class="card-text">Condicion: <?= $detail->condicion?></p>
             <?php endif;?>
                 <a href="mostrarObjetos" class="btn btn-primary">Volver</a>
         </div>

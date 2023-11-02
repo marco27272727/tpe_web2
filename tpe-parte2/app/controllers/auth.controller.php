@@ -16,7 +16,7 @@
             $this->modelAlumno = new StudentModel();
             $this->authHelper = new AuthHelper();
         }
-        //muestra el formulario de 
+        //muestra el formulario del login
         public function showAuth(){
             $students = $this->modelAlumno->getAllStudents();
             $this->view->displayAuth($students);
@@ -35,6 +35,7 @@
             }
         }
 
+        //funcion que cierra la sesion del login
         public function logout(){
             $this->authHelper->logout();
         }

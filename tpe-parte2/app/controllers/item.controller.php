@@ -45,6 +45,7 @@
             $this->view->displayFilterStudent($filterStudent,$name,$students);
         }
 
+        //funcion que agrega un nuevo item a la tabla de items
         public function addItem(){
             $this->authHelper->checkLoggedIn();
             $type = $_POST['type'];
@@ -65,18 +66,21 @@
             }
         }
 
+        //funcion que elimina un item ddeterminado 
         public function deleteItem($id){
             $this->authHelper->checkLoggedIn();
             $this->model->removeItem($id);
             header('Location: ' . BASE_URL . 'mostrarObjetos');
         }
 
+        //funcion que edita un item determinado 
         public function editItem($id){
             $this->authHelper->checkLoggedIn();
             $item = $this->model->getRegisterById($id);
             $this->view->editItem($item);
         }
 
+        // funcion que una vez editado ese item, actualiza en la tabla de items ese item determinado con esa id 
         public function insertItem($id){
             $this->authHelper->checkLoggedIn();
             if(isset($_POST['type']) || isset($_POST['number']) || isset($_POST['state'])){
@@ -89,18 +93,23 @@
             }
         }
 
+        // funcion que obtiene la id del estudiante al que se le va a prestar el item y actualiza la fila en la esta
+        // ese item y se le agrega en la clave fk la id del estudiante y ademas se actualiza el campo en_uso para saber que esta prestado ese item
         public function lendItem($idItem,$idStudent){
             
             $this->model->updateItem($idItem,$idStudent);
             header('Location: ' . BASE_URL . 'mostrarObjetos');
         }
 
+        // funcion que va a obtener la id del estudiante al cual se le va a prestar la id del item que se eligio
         public function getStudent($id){
             $item = $this->model->getRegisterById($id);
             $students = $this->modelAlumno->getAllStudents();
             $this->view->chooseStudent($item,$students);
         }
-
+        
+        //funcion que vuelve a poner en null la fk de ese item determinado y se cambia el campo en_uso para
+        // demostrar que ese item se va a poder volver a prestar
         public function returnItem($id){
             $this->model->updateReturnItem($id);
             header('Location: ' . BASE_URL . 'mostrarObjetos');
