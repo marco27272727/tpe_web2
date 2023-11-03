@@ -6,13 +6,19 @@
     class ItemController{
         private $model;
         private $view;
+        private $data;
 
         function __construct(){
             $this->model = new ItemModel();
             $this->view = new ApiView();
+            $this->data = file_get_contents("php://input");
         }
 
-        function get($params = []){
+        public function getData(){
+            return json_decode($this->data);
+        }
+
+        public function get($params = []){
             if(empty($params)){
                 $items = $this->model->getAllItems();
                 $this->view->response($items, 200);
