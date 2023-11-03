@@ -12,8 +12,17 @@
             $this->view = new ApiView();
         }
 
-        function getAllItems(){
-            $items = $this->model->getAllItems();
-            $this->view->response($items,200);
+        function get($params = []){
+            if(empty($params)){
+                $items = $this->model->getAllItems();
+                $this->view->response($items, 200);
+            } else {
+                $item = $this->model->getRegisterById($params[':ID']);
+                if(!empty($item)){
+                    $this->view->response($item, 200);
+                } else {
+                    $this->view->response(['no existe el item con ese id'], 404);
+                }
+            }
         }
     }
