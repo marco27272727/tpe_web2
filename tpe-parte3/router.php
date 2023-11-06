@@ -8,8 +8,10 @@
     $router = new Router();
 
 
-    $router->addRoute('items', 'GET', 'itemController', 'get');
-    $router->addRoute('items/:ID', 'GET', 'itemController', 'get');
+    $router->addRoute('historial', 'GET', 'itemController', 'getHistorialItems');
+    $router->addRoute('historial/:ID', 'GET', 'itemController', 'getHistorialItem');
+    $router->addRoute('historial', 'POST', 'itemController', 'addItem');
+    $router->addRoute('historial/:ID', 'PUT', 'itemController', 'updateItem');
 
     $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);
 

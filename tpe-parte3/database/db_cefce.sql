@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2023 a las 04:21:20
+-- Tiempo de generación: 05-11-2023 a las 00:53:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -43,7 +43,29 @@ CREATE TABLE `alumno` (
 INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `numero_celular`, `dni`, `fecha_dia`) VALUES
 (1, 'marcos', 'cordoba', '2494522237', 37935541, '2023-10-08 15:00:16'),
 (2, 'maximo', 'bayones', '2284552410', 42773117, '2023-10-15 21:55:08'),
-(3, 'camila', 'colombani', ' 2147483647', 42773118, '2023-10-15 21:55:31');
+(3, 'camilas', 'colombani', '2494531201', 42773118, '2023-10-15 21:55:31');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `id` int(11) NOT NULL,
+  `fecha_de_prestado` datetime NOT NULL,
+  `fecha_devuelto` datetime NOT NULL,
+  `id_item` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`id`, `fecha_de_prestado`, `fecha_devuelto`, `id_item`) VALUES
+(2, '2023-11-01 07:31:00', '2023-11-01 19:00:00', 4),
+(3, '2023-11-02 14:30:00', '2023-11-02 20:50:04', 4),
+(4, '2023-11-01 16:00:00', '2023-11-01 18:30:00', 3);
 
 -- --------------------------------------------------------
 
@@ -66,10 +88,11 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id_item`, `tipo_item`, `numero_item`, `en_uso`, `condicion`, `img`, `id_alumno`) VALUES
-(2, 'termo', 27, 1, 'en buen estado', 'termo.jpg', 2),
-(3, 'mate', 2, 1, 'en buen estado', 'mate.jpg', 1),
-(4, 'calculadora', 20, 1, 'No resuelve integrales', 'calculadora.jpg', 3),
-(5, 'termo', 8, 1, 'buen estado', 'termo.jpg', 1);
+(3, 'calculadora', 2, 0, 'en buen estado', 'calculadora.jpg', NULL),
+(4, 'mate', 20, 0, 'No resuelve integrales', 'mate.jpg', NULL),
+(7, 'calculadora', 12, 0, 'no tiene pilas', 'calculadora.jpg', NULL),
+(8, 'calculadora', 1, 0, 'no tiene pilas', 'calculadora.jpg', NULL),
+(9, 'mate', 1, 0, 'le falta la bombilla', 'mate.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -101,6 +124,13 @@ ALTER TABLE `alumno`
   ADD PRIMARY KEY (`id_alumno`);
 
 --
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_item` (`id_item`) USING BTREE;
+
+--
 -- Indices de la tabla `items`
 --
 ALTER TABLE `items`
@@ -124,10 +154,16 @@ ALTER TABLE `alumno`
   MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -138,6 +174,12 @@ ALTER TABLE `users`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `items`
