@@ -18,19 +18,26 @@
             return json_decode($this->data);
         }
 
-        public function getHistorialItems(){               
+        public function getHistoriallItems(){               
             $fields = ['id', 'fecha_de_prestado', 'fecha_devuelto', 'id_item'];
-            $sort = ['asc', 'desc'];
-        
-            if (isset($_GET['sort']) && in_array($_GET['sort'], $sort) && in_array($_GET['order'], $fields)) {               
-                $sort = $_GET['sort'];
-                $order = $_GET['order'];           
-                $reviews = $this->model->getAll($sort, $order);
-                $this->view->response($reviews, 200);
+            $order = ['asc', 'desc'];
+
+            if(isset($_GET['sort']) && isset($_GET['order'])){
+                if(in_array($_GET['sort'], $fields) && in_array($_GET['order'], $order)){
+                    $sort = $_GET['sort'];
+                    $order = $_GET['order'];
+                    $record = $this->model->getOrder($sort, $order);
+                    $this->view->response($record, 200);
+                }else{
+                    $this->view->response("No se puede ordenar de esta manera", 404);
+                }
+            }else{
+                $record = $this->model->getAll();
+                $this->view->response($record, 200);
             }
         }
 
-        public function getHistorialItem($params = null){
+        public function getHistoriallItem($params = null){
             $id = $params[':ID'];
             $item = $this->model->getItem($id);
             if($item){

@@ -9,8 +9,8 @@
             $this->db = new PDO('mysql:host='.db_host.';dbname='.db_name.';charset='.db_charset, db_user, db_pass);           
         }
         
-        function getAll($sort, $order) {
-            $query = $this->db->prepare('SELECT * FROM historial INNER JOIN items ON historial.id_item = items.id_item ORDER BY '.$sort.' '.$order);
+        function getAll() {
+            $query = $this->db->prepare("SELECT * FROM historial INNER JOIN items ON historial.id_item = items.id_item");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_OBJ);      
         }
@@ -31,5 +31,11 @@
             $query = $this->db->prepare("UPDATE historial SET fecha_de_prestado = ?, fecha_devuelto = ?, id_item = ? WHERE id=? ");
             $result = $query->execute([$fecha_de_prestado,$fecha_devuelto,$id_item,$id]);
             return $result;
+        }
+
+        function getOrder($sort, $order) {
+            $query = $this->db->prepare("SELECT * FROM historial INNER JOIN items ON historial.id_item = items.id_item ORDER BY $sort $order");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_OBJ);      
         }
     }
