@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2023 a las 00:53:22
+-- Tiempo de generación: 12-11-2023 a las 23:16:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -43,7 +43,10 @@ CREATE TABLE `alumno` (
 INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `numero_celular`, `dni`, `fecha_dia`) VALUES
 (1, 'marcos', 'cordoba', '2494522237', 37935541, '2023-10-08 15:00:16'),
 (2, 'maximo', 'bayones', '2284552410', 42773117, '2023-10-15 21:55:08'),
-(3, 'camilas', 'colombani', '2494531201', 42773118, '2023-10-15 21:55:31');
+(3, 'camilas', 'colombani', '2494531201', 42773118, '2023-10-15 21:55:31'),
+(4, 'Daniel', 'Perez', ' 2147483647', 42773119, '2023-11-12 22:07:04'),
+(5, 'josefina', 'Andres', ' 2147483647', 42773118, '2023-11-12 22:07:30'),
+(6, 'Facundo', 'Bolsas', ' 2147483456', 42773156, '2023-11-12 22:07:55');
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,16 @@ CREATE TABLE `historial` (
 INSERT INTO `historial` (`id`, `fecha_de_prestado`, `fecha_devuelto`, `id_item`) VALUES
 (2, '2023-11-01 07:31:00', '2023-11-01 19:00:00', 4),
 (3, '2023-11-02 14:30:00', '2023-11-02 20:50:04', 4),
-(4, '2023-11-01 16:00:00', '2023-11-01 18:30:00', 3);
+(4, '2023-11-01 16:00:00', '2023-11-01 18:30:00', 3),
+(5, '2023-11-17 19:08:18', '2023-11-12 23:08:18', 12),
+(9, '2023-11-01 19:09:02', '2023-11-12 23:09:02', 4),
+(10, '2023-11-12 23:09:02', '2023-11-12 23:09:02', 13),
+(11, '2023-09-05 19:09:37', '2023-11-25 19:09:37', 14),
+(12, '2023-11-01 19:09:59', '2023-11-02 19:09:59', 14),
+(13, '2023-03-01 19:10:22', '2023-11-08 19:10:22', 12),
+(14, '2020-11-02 19:10:42', '2023-11-06 19:10:42', 11),
+(15, '2023-09-14 19:12:59', '2023-11-13 19:12:59', 12),
+(16, '2023-07-06 19:13:30', '2023-11-09 19:13:30', 13);
 
 -- --------------------------------------------------------
 
@@ -88,11 +100,15 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id_item`, `tipo_item`, `numero_item`, `en_uso`, `condicion`, `img`, `id_alumno`) VALUES
-(3, 'calculadora', 2, 0, 'en buen estado', 'calculadora.jpg', NULL),
-(4, 'mate', 20, 0, 'No resuelve integrales', 'mate.jpg', NULL),
+(3, 'calculadora', 2, 0, 'en buen estado', 'calculadora.jpg', 2),
+(4, 'mate', 20, 0, 'No resuelve integrales', 'mate.jpg', 1),
 (7, 'calculadora', 12, 0, 'no tiene pilas', 'calculadora.jpg', NULL),
-(8, 'calculadora', 1, 0, 'no tiene pilas', 'calculadora.jpg', NULL),
-(9, 'mate', 1, 0, 'le falta la bombilla', 'mate.jpg', NULL);
+(8, 'calculadora', 1, 0, 'no tiene pilas', 'calculadora.jpg', 2),
+(9, 'mate', 1, 0, 'le falta la bombilla', 'mate.jpg', NULL),
+(11, 'mate', 15, 0, 'buen estado', 'mate.jpg', NULL),
+(12, 'vaso', NULL, 1, 'manchado con té', 'vaso.jpg', 3),
+(13, 'termo', 33, 1, 'pico roto', 'termo.jpg', 1),
+(14, 'calculadora', 55, 1, 'falta signo +', 'calculadora.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -151,19 +167,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
