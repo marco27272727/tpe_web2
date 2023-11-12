@@ -16,7 +16,7 @@
         }
 
         public function getItem($id){
-            $query = $this->db->prepare("SELECT * FROM historial INNER JOIN items ON historial.id_item = items.id_item WHERE historial.id_item = ? ");
+            $query = $this->db->prepare("SELECT * FROM historial INNER JOIN items ON historial.id_item = items.id_item WHERE historial.id = ? ");
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ);
         }
